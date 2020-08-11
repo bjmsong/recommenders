@@ -1,4 +1,5 @@
 import sys
+
 sys.path.append("../../")
 import os
 import papermill as pm
@@ -37,8 +38,7 @@ LAMBDA = 0.002
 # for regression, options are "rmse", "mae", "mape"
 METRIC = "auc"
 EPOCH = 10
-OPT_METHOD = "sgd" # options are "sgd", "adagrad" and "ftrl"
-
+OPT_METHOD = "sgd"  # options are "sgd", "adagrad" and "ftrl"
 
 if __name__ == "__main__":
     df_feature_original = pd.DataFrame({
@@ -51,7 +51,6 @@ if __name__ == "__main__":
 
     converter = LibffmConverter().fit(df_feature_original, col_rating='rating')
     df_out = converter.transform(df_feature_original)
-    df_out
 
     print('There are in total {0} fields and {1} features.'.format(converter.field_count, converter.feature_count))
 
